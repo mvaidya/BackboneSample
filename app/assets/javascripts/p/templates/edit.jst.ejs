@@ -1,0 +1,22 @@
+<h2>New Products</h2>
+
+<form id="product_form">
+    <legend><%= product ? 'Update Product' : 'Create New Product' %></legend>
+
+    <% if (product) { %>
+        <input type="hidden" name="id" id="product_id" value="<%= product.id %>">
+    <% } %>
+    <label for="product_name">Name</label>
+    <input type="text" name="name" id="product_name" value="<%= product ? product.get('name') : '' %>" />
+
+    <label for="product_image">Image</label>
+    <input type="text" name="image" id="product_image" value="<%= product ? product.get('image') : '' %>" />
+
+    <label for="product_category">Category</label>
+    <input type="text" name="category" id="product_category" value="<%= product ? product.get('category') : '' %>" />
+
+    <hr />
+    <button type="submit" class="btn btn-primary"><%= product ? 'Update' : 'Create' %></button>
+
+    <button type="button" class="btn btn-danger delete">Delete</button>
+</form>

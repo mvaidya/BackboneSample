@@ -1,0 +1,40 @@
+<h2>All Products</h2>
+
+<a href="#/new" class="btn btn-primary">New Product</a>
+
+<hr />
+
+<ul class="nav nav-pills">
+    <li class="<%= cur_category ? '' : 'active' %>"><a href="#">All Products</a></li>
+    <% _.each(categories, function (category, index) { %>
+        <li class="<%= cur_category == category ? 'active' : '' %>">
+            <a href="#/?category=<%= category %>"><%= category %></a>
+        </li>
+    <% }); %>
+</ul>
+
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    <% _.each(products, function (product, index) { %>
+        <% if(product){ %>
+        <tr>
+            <td><%= product.name %></td>
+            <td><%= product.category %></td>
+            <td>
+                <a href="#/edit/<%= product.id %>" class="btn btn-success btn-small">Edit</a>
+                <a href="#/delete/<%= product.id %>" class="btn btn-danger btn-mini">Delete</a>
+            </td>
+        </tr>
+        <% } %>
+    <% }); %>
+    </tbody>
+</table>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BackboneSample</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= yield :head %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container">
+  <h1>My Store</h1>
+  <hr />
+  <%= yield %>
+</div>
+
+
+<%= javascript_include_tag "application" %>
+<%= yield :javascripts %>
+
+</body>
+</html>
